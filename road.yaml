@@ -1,0 +1,59 @@
+output: "road_scene.vox"
+models:
+ - name: "vox/road.vox"
+ - name: "vox/tree.vox"
+   posX: 10
+   posY: 20.5
+   posZ: 2
+   centerX: yes
+   centerY: yes
+   rotateZ: 270
+ - name: "vox/tree.vox"
+   posX: 9
+   posY: 60.5
+   posZ: 2
+   centerX: yes
+   centerY: yes
+   rotateZ: 180
+ - name: "vox/tree.vox"
+   posX: 10
+   posY: 100.5
+   posZ: 2
+   centerX: yes
+   centerY: yes
+   rotateZ: 90
+ - name: "vox/tree.vox"
+   posX: 111
+   posY: 20.5
+   posZ: 2
+   centerX: yes
+   centerY: yes
+   rotateZ: 90
+ - name: "vox/tree.vox"
+   posX: 112
+   posY: 60.5
+   posZ: 2
+   centerX: yes
+   centerY: yes
+   rotateZ: 180
+ - name: "vox/tree.vox"
+   posX: 111
+   posY: 100.5
+   posZ: 2
+   centerX: yes
+   centerY: yes
+   rotateZ: 90
+ - name: "vox/car_blue.vox"
+   posX: 40.5
+   posY: 75
+   posZ: 1
+   centerX: yes
+   centerY: yes
+   rotateZ: 0
+ - name: "vox/car_blue.vox"
+   posX: 67.5
+   posY: 50
+   posZ: 1
+   centerX: yes
+   centerY: yes
+   rotateZ: 180
