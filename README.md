@@ -11,11 +11,11 @@ We wrote it to build scenes for our mobile game [Road Trip](http://larvalabs.com
 
 Here are three Magica models:
 
-[[https://github.com/larvalabs/voxcom/blob/master/images/road.png|alt=road]]
+![Road](https://github.com/larvalabs/voxcom/blob/master/images/road.png)
 
-[[https://github.com/larvalabs/voxcom/blob/master/images/tree.png|alt=tree]]
+![Tree](https://github.com/larvalabs/voxcom/blob/master/images/tree.png)
 
-[[https://github.com/larvalabs/voxcom/blob/master/images/car.png|alt=car]]
+![Car](https://github.com/larvalabs/voxcom/blob/master/images/car.png)
 
 This `.yaml` file specifies how the scene should be composited:
 
@@ -84,8 +84,7 @@ models:
 
 And here is the composited result from Voxcom:
 
-![Composited Scene](https://github.com/larvalabs/voxcom/blob/master/images/roadScene.png? "Composited Scene")
-[[https://github.com/larvalabs/voxcom/blob/master/images/roadScene.png|alt=composited scene]]
+![Composited Scene](https://github.com/larvalabs/voxcom/blob/master/images/roadScene.png "Composited Scene")
 
 ## Usage
 
