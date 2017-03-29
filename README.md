@@ -11,7 +11,11 @@ We wrote it to build scenes for our mobile game [Road Trip](http://larvalabs.com
 
 Here are three Magica models:
 
-todo
+[[https://github.com/larvalabs/voxcom/blob/master/images/road.png|alt=road]]
+
+[[https://github.com/larvalabs/voxcom/blob/master/images/tree.png|alt=tree]]
+
+[[https://github.com/larvalabs/voxcom/blob/master/images/car.png|alt=car]]
 
 This `.yaml` file specifies how the scene should be composited:
 
@@ -80,7 +84,7 @@ models:
 
 And here is the composited result from Voxcom:
 
-todo
+[[https://github.com/larvalabs/voxcom/blob/master/images/roadScene.png|alt=composited scene]]
 
 ## Usage
 
@@ -95,13 +99,13 @@ When you are ready to make your own scene, here is the format `.yaml` file:
 1. At the top level, you can specify the output file with `output: filename.vox`. If omitted, the default is `scene.vox`.
 2. Also at the top level, you can indicate if you wish materials to be ignored when merging the model palettes with `ignoreMaterials: yes`. The default if omitted is `no`. This is discussed in more detail later.
 3. Next come the list of models, beginning with a `models:` line.
-..* The `name` field is the path to the .vox file.
-..* The position is specified with `posX`, `posY`, and `posZ`. They default to `0` if missing.
-..* The model is positioned so that its origin `(0, 0, 0)` is placed at `(posX, posY, posZ)`.
+  * The `name` field is the path to the .vox file.
+  * The position is specified with `posX`, `posY`, and `posZ`. They default to `0` if missing.
+  * The model is positioned so that its origin `(0, 0, 0)` is placed at `(posX, posY, posZ)`.
 If you would like to center any of the axes instead, then specify `centerX: yes`, `centerY: yes`, and/or `centerZ: yes`.
 Note that if you have a model with an even number of voxels on an axis that you want centered, you can specify the position at the half way point between two voxels to make it clear where you would like it to be centered.
-..* You can flip the model with respect to its axes with `flipX: yes`, `flipY: yes`, and `flipZ: yes`.
-..* You can rotate the model `90`, `180` or `270` degrees with `rotateX: 90`, `rotateY: 90`, and `rotateZ: 90`.
+  * You can flip the model with respect to its axes with `flipX: yes`, `flipY: yes`, and `flipZ: yes`.
+  * You can rotate the model `90`, `180` or `270` degrees with `rotateX: 90`, `rotateY: 90`, and `rotateZ: 90`.
 The rotations are processed first for the X axis, then the Y, then finally the Z, and these are all processed after the flips above.
 
 ## Palette Merging
