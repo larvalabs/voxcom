@@ -84,6 +84,7 @@ models:
 
 And here is the composited result from Voxcom:
 
+![Composited Scene](https://github.com/larvalabs/voxcom/blob/master/images/roadScene.png? "Composited Scene")
 [[https://github.com/larvalabs/voxcom/blob/master/images/roadScene.png|alt=composited scene]]
 
 ## Usage
