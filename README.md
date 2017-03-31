@@ -1,3 +1,5 @@
+![Header](https://github.com/larvalabs/voxcom/blob/master/images/people.png)
+
 # Voxcom
 
 Voxcom is a tool for compositing multiple [MagicaVoxel](https://ephtracy.github.io/) models into a combined scene.
