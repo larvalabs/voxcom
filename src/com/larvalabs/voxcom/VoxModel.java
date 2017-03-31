@@ -32,7 +32,9 @@ public class VoxModel {
     }
 
     public void addVoxel(int x, int y, int z, int i) {
-        voxels.add(new Voxel(x, y, z, i));
+        if (x >= 0 && x < MAX_SIZE && y >= 0 && y < MAX_SIZE && z >= 0 && z < MAX_SIZE) {
+            voxels.add(new Voxel(x, y, z, i));
+        }
         palette.setUsed(i);
     }
 
@@ -56,16 +58,32 @@ public class VoxModel {
         return voxels;
     }
 
-    public void change(int fromIndex, int toIndex) {
-        for (Voxel voxel : voxels) {
-            if (voxel.i == fromIndex) {
-                voxel.i = toIndex;
-            }
-        }
-    }
-
     public void add(VoxModel model, int x, int y, int z) {
         add(model, x, y, z, false, false, false, false, false, false, 0, 0, 0);
+    }
+
+    public void scale(int f) {
+        if (f == 1) {
+            return;
+        } else {
+            ArrayList<Voxel> oldVoxels = voxels;
+            voxels = new ArrayList<>();
+            for (Voxel voxel : oldVoxels) {
+                int x = voxel.x * f;
+                int y = voxel.y * f;
+                int z = voxel.z * f;
+                for (int dx = 0; dx < f; dx++) {
+                    for (int dy = 0; dy < f; dy++) {
+                        for (int dz = 0; dz < f; dz++) {
+                            addVoxel(x + dx, y + dy, z + dz, voxel.i);
+                        }
+                    }
+                }
+            }
+            sizeX = Math.min(sizeX * f, MAX_SIZE);
+            sizeY = Math.min(sizeY * f, MAX_SIZE);
+            sizeZ = Math.min(sizeZ * f, MAX_SIZE);
+        }
     }
 
     public void add(VoxModel model, float x, float y, float z, boolean centerX, boolean centerY, boolean centerZ, boolean flipX, boolean flipY, boolean flipZ, int rotateX, int rotateY, int rotateZ) {

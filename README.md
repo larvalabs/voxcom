@@ -100,13 +100,14 @@ When you are ready to make your own scene, here is the format of the `.yaml` fil
 2. Also at the top level, you can indicate if you wish materials to be ignored when merging the model palettes with `ignoreMaterials: yes`. The default if omitted is `no`. This is discussed in more detail later.
 3. Next comes the list of models, beginning with a `models:` line.
     1. The `name` field is the path to the `.vox` file.
-    2. The position is specified with `posX`, `posY`, and `posZ`. They default to `0` if missing.
-    3. The model is positioned so that its origin `(0, 0, 0)` is placed at `(posX, posY, posZ)`.
+    2. The model can be scaled up by an integral amount with `scale: N`.
+    3. The position is specified with `posX`, `posY`, and `posZ`. They default to `0` if missing.
+    4. The model is positioned so that its origin `(0, 0, 0)` is placed at `(posX, posY, posZ)`.
 If you would like to center the model along any of the axes instead, then specify `centerX: yes`, `centerY: yes`, and/or `centerZ: yes`.
 Note that if you wish to center a model along an axis with an even number of voxels, you can specify the position at the half way point between two voxels to make it clear where you would like it to be centered.
 This is done in the example above.
-    4. You can flip the model with respect to its axes with `flipX: yes`, `flipY: yes`, and `flipZ: yes`.
-    5. You can rotate the model `90`, `180` or `270` degrees with `rotateX: N`, `rotateY: N`, and `rotateZ: N`.
+    5. You can flip the model with respect to its axes with `flipX: yes`, `flipY: yes`, and `flipZ: yes`.
+    6. You can rotate the model `90`, `180` or `270` degrees with `rotateX: N`, `rotateY: N`, and `rotateZ: N`.
 The rotations are processed first for the X axis, then the Y, then finally the Z, and these are all processed after the flips above.
 
 ## Palette Merging

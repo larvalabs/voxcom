@@ -41,6 +41,7 @@ public class Voxcom {
         VoxModel parent = new VoxModel(1, 1, 1);
         for (HashMap model : models) {
             String filename = model.get("name").toString();
+            int scale = getInt(model, "scale", 1);
             float posX = getFloat(model, "posX", 0);
             float posY = getFloat(model, "posY", 0);
             float posZ = getFloat(model, "posZ", 0);
@@ -56,6 +57,7 @@ public class Voxcom {
             System.out.println(" - Adding '" + filename + "'...");
             FileInputStream modelIn = new FileInputStream(filename);
             VoxModel vm = VoxFormat.read(modelIn);
+            vm.scale(scale);
             modelIn.close();
             parent.add(vm, posX, posY, posZ, centerX, centerY, centerZ, flipX, flipY, flipZ, rotateX, rotateY, rotateZ);
         }
