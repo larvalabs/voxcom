@@ -100,7 +100,7 @@ When you are ready to make your own scene, here is the format of the `.yaml` fil
 2. Also at the top level, you can indicate if you wish materials to be ignored when merging the model palettes with `ignoreMaterials: yes`. The default if omitted is `no`. This is discussed in more detail later.
 3. Next comes the list of models, beginning with a `models:` line.
     1. The `name` field is the path to the `.vox` file.
-    2. The model can be scaled up by an integral amount with `scale: N`.
+    2. The model can be scaled up by an integral amount with `scale: N`. As expected `N` defaults to 1.
     3. The position is specified with `posX`, `posY`, and `posZ`. They default to `0` if missing.
     4. The model is positioned so that its origin `(0, 0, 0)` is placed at `(posX, posY, posZ)`.
 If you would like to center the model along any of the axes instead, then specify `centerX: yes`, `centerY: yes`, and/or `centerZ: yes`.
