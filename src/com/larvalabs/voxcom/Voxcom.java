@@ -14,7 +14,11 @@ import java.util.HashMap;
  */
 public class Voxcom {
 
+    public static final int MAX_SIZE_VOX = 126;
+    public static final int MAX_SIZE_VIEWER = 2048;
+
     public static boolean ignoreMaterials = false;
+    public static int maxSize = 126;
 
     public static void main(String[] args) throws Exception{
         System.out.println("Welcome to Voxcom \uD83D\uDC7E");
@@ -30,8 +34,16 @@ public class Voxcom {
     }
 
     private static void parseYaml(String file) throws Exception {
-        String outFile = "scene.vox";
+        String outFile;
         HashMap yaml = (HashMap) Yaml.load(new File(file));
+        boolean forViewer = getBoolean(yaml, "viewer", false);
+        if (forViewer) {
+            maxSize = MAX_SIZE_VIEWER;
+            outFile = "scene";
+        } else {
+            maxSize = MAX_SIZE_VOX;
+            outFile = "scene.vox";
+        }
         if (yaml.containsKey("output")) {
             outFile = yaml.get("output").toString();
         }
@@ -62,10 +74,16 @@ public class Voxcom {
             parent.add(vm, posX, posY, posZ, centerX, centerY, centerZ, flipX, flipY, flipZ, rotateX, rotateY, rotateZ);
         }
         parent.clipToVoxels();
-        System.out.println(" - Writing result to '" + outFile + "'...");
-        FileOutputStream out = new FileOutputStream(outFile);
-        VoxFormat.write(parent, out);
-        out.close();
+        if (forViewer) {
+            System.out.println(" - Writing out vox files to '" + outFile + "'...");
+            parent.splitIntoTiles(outFile, MAX_SIZE_VOX);
+            System.out.println(" - Drag the file '" + outFile + ".txt' into the MagicaVoxel Viewer to render.");
+        } else {
+            System.out.println(" - Writing vox result to '" + outFile + "'...");
+            FileOutputStream out = new FileOutputStream(outFile);
+            VoxFormat.write(parent, out);
+            out.close();
+        }
         System.out.println("Done.");
     }
 

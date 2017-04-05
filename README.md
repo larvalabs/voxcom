@@ -99,6 +99,7 @@ You can use `road.yaml` that is provided in the distribution to test it out.
 When you are ready to make your own scene, here is the format of the `.yaml` file:
 
 1. At the top level, you can specify the output file with `output: filename.vox`. If omitted, the default is `scene.vox`.
+    - If you want to make a scene that is larger than 126 x 126 x 126 voxels, specify `viewer: yes` and remove the filename extension from `output: filename`. The model will be split up into chunks and a text file generated for use in [MagicaVoxel Viewer](https://ephtracy.github.io/index.html?page=mv_renderer). See below for more details. 
 2. Also at the top level, you can indicate if you wish materials to be ignored when merging the model palettes with `ignoreMaterials: yes`. The default if omitted is `no`. This is discussed in more detail later.
 3. Next comes the list of models, beginning with a `models:` line.
     1. The `name` field is the path to the `.vox` file.
@@ -122,3 +123,12 @@ For those that don't match, an unused palette entry is overwriten with the new e
 If this process results in more than 255 unique palette entries, then undefined behavior will result.
 if there is demand for it, an algorithm to produce the best compromise palette could be attempted.
 If the `ignoreMaterials` flag is switched on, then all material settings are disregarded and only the color is used to merge palettes.
+
+## Large Models and the MagicaVoxel Viewer
+
+The MagicaVoxel editor only supports models up to 126 x 126 x 126 voxels.
+For scenes larger than this, the [MagicaVoxel Viewer](https://ephtracy.github.io/index.html?page=mv_renderer) is used instead.
+It doesn't have support for materials, or some of the other latest rendering features, so only use this if your scene is too large.
+A grid of .vox files are generated and placed in a folder (specified by the `output` parameter).
+A text file is generated that specifies to the Viewer how the models should be laid out.
+Simply drag this file into the Viewer and it will be rendered.
